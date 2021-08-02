@@ -1,21 +1,13 @@
 // import * as auth from "auth-provider";
 
+import { IClientConfig } from "./types";
+
 const apiURL = process.env.REACT_APP_API_URL;
 
-async function client(
+const client = async (
   endpoint: string,
-  {
-    data,
-    token,
-    headers: customHeaders,
-    ...customConfig
-  }: {
-    data?: Record<string, any>;
-    token?: string;
-    headers?: Partial<HeadersInit>;
-    customConfig?: Partial<RequestInit>;
-  } = {}
-) {
+  { data, token, headers: customHeaders, ...customConfig }: IClientConfig = {}
+) => {
   const config = {
     method: data ? "POST" : "GET",
     body: data ? JSON.stringify(data) : undefined,
@@ -43,6 +35,6 @@ async function client(
         return Promise.reject(data);
       }
     });
-}
+};
 
 export { client };
