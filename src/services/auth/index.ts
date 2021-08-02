@@ -1,7 +1,3 @@
-// pretend this is firebase, netlify, or auth0's code.
-// you shouldn't have to implement something like this in your own app
-
-const localStorageKey = "__auth_provider_token__";
 //TODO to be implemented
 async function getToken() {
   // return window.localStorage.getItem(localStorageKey);

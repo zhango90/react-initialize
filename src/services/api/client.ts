@@ -1,4 +1,4 @@
-// import * as auth from "auth-provider";
+import * as auth from "services/auth";
 
 import { IClientConfig } from "./types";
 
