@@ -39,4 +39,4 @@ const client = async (endpoint: string, data: Record<string, any>) => {
     });
 };
 
-export { getToken, login, register, logout, localStorageKey };
+export { getToken, login, register, logout };
