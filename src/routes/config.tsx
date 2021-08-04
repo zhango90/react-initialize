@@ -1,17 +1,18 @@
-import Home from 'pages/Home';
+import { Home } from 'pages/Home/AsyncHome';
+import { About } from 'pages/About/AsyncAbout';
 import { IRoute } from './types';
 // This is the configuration file for all the routes present in the application
 export const ROUTES: IRoute[] = [
   { path: '/', key: 'HOME', exact: true, component: Home },
   {
-    path: '/app',
+    path: '/dashboard',
     key: 'APP',
     routes: [
       {
-        path: '/app',
+        path: '/about',
         key: 'APP_ROOT',
         exact: true,
-        component: () => <h1>App Index</h1>,
+        component: About,
       },
       {
         path: '/app/page',
