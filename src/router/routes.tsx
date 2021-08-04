@@ -1,12 +1,13 @@
 import { Home } from 'pages/Home/AsyncHome';
 import { About } from 'pages/About/AsyncAbout';
+import { UserBadge } from 'domains/user/components/UserBadge';
 import { IRoute } from './types';
 // This is the configuration file for all the routes present in the application
 // path are relative path
-export const ROUTES: IRoute[] = [
+export default [
   { path: '/', key: 'HOME', exact: true, component: Home },
   {
-    path: '/dashboard',
+    path: '/app',
     key: 'APP',
     routes: [
       {
@@ -16,11 +17,11 @@ export const ROUTES: IRoute[] = [
         component: About,
       },
       {
-        path: '/app/page',
-        key: 'APP_PAGE',
+        path: '/user',
+        key: 'USER',
         exact: true,
-        component: () => <h1>App Page</h1>,
+        component: UserBadge,
       },
     ],
   },
-];
+] as IRoute[];

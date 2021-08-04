@@ -1,6 +1,6 @@
 import { Route, Switch } from 'react-router-dom';
-import { IRoute } from './types';
-import { ROUTES } from './config';
+import { IRoute } from '../types';
+import ROUTES from '../routes';
 import RouteWithSubRoutes from './RouteWIthSubRoutes';
 
 interface IProps {

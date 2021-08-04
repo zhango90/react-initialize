@@ -1,6 +1,6 @@
 import { Route } from 'react-router-dom';
-import { RenderRoutes } from 'routes';
-import { IRoute } from './types';
+import { RenderRoutes } from 'router';
+import { IRoute } from '../types';
 
 const RouteWithSubRoutes = ({
   component,
