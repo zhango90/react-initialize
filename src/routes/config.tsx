@@ -6,7 +6,6 @@ export const ROUTES: IRoute[] = [
   {
     path: '/app',
     key: 'APP',
-    component: () => <h1>App</h1>,
     routes: [
       {
         path: '/app',

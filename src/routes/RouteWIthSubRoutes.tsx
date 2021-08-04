@@ -1,14 +1,19 @@
 import { Route } from 'react-router-dom';
+import { RenderRoutes } from 'routes';
 import { IRoute } from './types';
 
-const RouteWithSubRoutes = (route: IRoute) => {
+const RouteWithSubRoutes = ({
+  component,
+  routes,
+  path,
+  exact,
+}: IRoute) => {
+  const Component = component || RenderRoutes;
   return (
     <Route
-      path={route.path}
-      exact={route.exact}
-      render={(props) => (
-        <route.component {...props} routes={route.routes} />
-      )}
+      path={path}
+      exact={exact}
+      render={(props) => <Component {...props} routes={routes} />}
     />
   );
 };
