@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
-import { RenderRoutes } from 'routes';
+import { RenderRoutes, BrowserRouter as Router } from 'routes';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
