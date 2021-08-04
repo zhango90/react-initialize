@@ -1,7 +1,7 @@
-import { Route, Switch } from "react-router-dom";
-import { ROUTES } from "./config";
-import RouteWithSubRoutes from "./RouteWIthSubRoutes";
-import { IRoute } from "./types";
+import { Route, Switch } from 'react-router-dom';
+import { ROUTES } from './config';
+import RouteWithSubRoutes from './RouteWIthSubRoutes';
+import { IRoute } from './types';
 
 interface IProps {
   routes?: IRoute[];
@@ -12,7 +12,7 @@ interface IProps {
 export const RenderRoutes = ({ routes = ROUTES }: IProps) => {
   return (
     <Switch>
-      {routes.map((route, i) => {
+      {routes.map((route) => {
         return <RouteWithSubRoutes {...route} />;
       })}
       <Route component={() => <h1>Not Found!</h1>} />
