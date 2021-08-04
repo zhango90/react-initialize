@@ -9,11 +9,22 @@ const RouteWithSubRoutes = ({
   exact,
 }: IRoute) => {
   const Component = component || RenderRoutes;
+  const generateAbsPath = (relativePath: string) => {
+    return path + relativePath;
+  };
+  const castedRoutes = routes?.map((el) => {
+    return {
+      ...el,
+      path: generateAbsPath(el.path),
+    };
+  });
   return (
     <Route
       path={path}
       exact={exact}
-      render={(props) => <Component {...props} routes={routes} />}
+      render={(props) => (
+        <Component {...props} routes={castedRoutes} />
+      )}
     />
   );
 };
