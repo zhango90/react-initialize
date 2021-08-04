@@ -1,13 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { RenderRoutes, BrowserRouter as Router } from 'router';
+import { ThemeProvider } from 'theme';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <RenderRoutes />
-    </Router>
+    <ThemeProvider>
+      <Router>
+        <RenderRoutes />
+      </Router>
+    </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root'),
 );
