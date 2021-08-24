@@ -1,30 +1,27 @@
-// import * as auth from "auth-provider";
+import * as auth from 'shared/services/auth';
+
+import { IClientConfig } from './types';
 
 const apiURL = process.env.REACT_APP_API_URL;
 
-async function client(
+const client = async (
   endpoint: string,
   {
     data,
     token,
     headers: customHeaders,
     ...customConfig
-  }: {
-    data?: Record<string, any>;
-    token?: string;
-    headers?: Partial<HeadersInit>;
-    customConfig?: Partial<RequestInit>;
-  } = {}
-) {
+  }: IClientConfig = {},
+) => {
   const config = {
-    method: data ? "POST" : "GET",
+    method: data ? 'POST' : 'GET',
     body: data ? JSON.stringify(data) : undefined,
     headers: {
       Authorization: token ? `Bearer ${token}` : undefined,
-      "Content-Type": data ? "application/json" : undefined,
-      ...customHeaders
+      'Content-Type': data ? 'application/json' : undefined,
+      ...customHeaders,
     },
-    ...customConfig
+    ...customConfig,
   };
 
   return window
@@ -34,7 +31,7 @@ async function client(
         await auth.logout();
         // refresh the page for them
         window.location.assign(window.location as any);
-        return Promise.reject({ message: "Please re-authenticate." });
+        return Promise.reject({ message: 'Please re-authenticate.' });
       }
       const data = await response.json();
       if (response.ok) {
@@ -43,6 +40,6 @@ async function client(
         return Promise.reject(data);
       }
     });
-}
+};
 
 export { client };
