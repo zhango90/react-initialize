@@ -31,13 +31,13 @@ const client = async (
         await auth.logout();
         // refresh the page for them
         window.location.assign(window.location as any);
-        return Promise.reject({ message: 'Please re-authenticate.' });
+        return Promise.reject(new Error('Please re-authenticate.'));
       }
-      const data = await response.json();
+      const parsedResponse = await response.json();
       if (response.ok) {
-        return data;
+        return parsedResponse;
       }
-      return Promise.reject(data);
+      return Promise.reject(parsedResponse);
     });
 };
 
